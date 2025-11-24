@@ -140,7 +140,7 @@ namespace ConsoleApp1
                         while (true)
                         {
                             Line = sr.ReadLine();
-                            if (Line == "joueurPos")
+                            if (Line == "autreData")
                                 break;
 
                             if (mapCount > conteur)
@@ -159,6 +159,11 @@ namespace ConsoleApp1
                         posRX = Convert.ToInt32(sr.ReadLine());
                         posRY = Convert.ToInt32(sr.ReadLine());
                         actionRestant = Convert.ToInt32(sr.ReadLine());
+
+                        for (int i = 0; i < inventair.Length; i++)
+                        {
+                            inventair[i] = Convert.ToInt32(sr.ReadLine());
+                        }
 
                     }
 
@@ -187,7 +192,7 @@ namespace ConsoleApp1
                         
                     }
 
-                    sw.WriteLine("joueurPos");
+                    sw.WriteLine("autreData");
                     sw.WriteLine(posX);
                     sw.WriteLine(posY);
                     sw.WriteLine(posRX);
