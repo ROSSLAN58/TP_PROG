@@ -8,8 +8,6 @@ namespace ConsoleApp1
     internal class Program
     {
 
-
-
         const int Fer = 0;
         const int Silex = 1;
         const int Bois = 2;
@@ -23,9 +21,6 @@ namespace ConsoleApp1
         const int Brique = 10;
         const int Isolant = 11;
         const int Maison = 12;
-
-
-
 
 
         public static void AfficherMap( List<string> map, int joueurX, int joueurY, int radius)
@@ -65,10 +60,9 @@ namespace ConsoleApp1
         public static void AfficherCredits(ref string partie)
         {
             
-
             Console.WriteLine("MonCraft");
             Console.WriteLine("Tout drois reserve.");
-            Console.WriteLine("Rosslan Kabisov, Dilane Gires Pokam");
+            Console.WriteLine("Rosslan Kabisov, Dilane Giresse Pokam");
             Console.WriteLine("");
             Console.WriteLine("Appuyer une touche pour sortire...");
             _ = Console.ReadKey();
@@ -101,15 +95,12 @@ namespace ConsoleApp1
                         Console.Clear();
                     }
 
-
                     partie = "en jeux";
                     break;
                 }
                 else if (action == "2")
                 {
                     // inventair, map, actionRestant, posX, posY, posRX, posRY
-
-
 
                     Console.Clear();
                     if (File.Exists("data.txt"))
@@ -136,11 +127,6 @@ namespace ConsoleApp1
                     }
 
 
-
-
-
-
-
                     partie = "en jeux";
 
                 }
@@ -148,7 +134,6 @@ namespace ConsoleApp1
                 {
 
                     // inventair, map, actionRestant, posX, posY, posRX, posRY
-
 
                     StreamWriter sw = new StreamWriter("data.txt");
 
@@ -174,17 +159,12 @@ namespace ConsoleApp1
                     sw.WriteLine(posRYJSON);
 
 
-
-
-
                     sw.Close();
-
 
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Saved");
                     Console.ForegroundColor = ConsoleColor.White;
-
 
                 }
                 else if (action == "4")
@@ -201,30 +181,22 @@ namespace ConsoleApp1
 
                 }
 
-
             }
 
         }
 
-
-
         static void Main(string[] args)
         {
 
-
             string partie = "menu";
 
-
-
             bool maisonConstruite = false;
-
 
             //map
             List<string> map = new List<string>();
             CreeMap(ref map);
             char[] biomsSymboles = { '/', '≈', '#', '~', '.', '*' };
             string[] biomsNoms = { "Montagne", "Rivière", "Forêt", "Marais", "Prairie", "Désert" };
-
 
             //joueur
             const int Radius = 5;
@@ -238,12 +210,9 @@ namespace ConsoleApp1
             //inventaire
             int[] inventaire = new int[13];
 
-
             //game loop
             while (!maisonConstruite && actionsReastant > 0)
             {
-
-
 
                 if (partie == "en jeux")
                 {
@@ -358,10 +327,6 @@ namespace ConsoleApp1
                 Console.WriteLine("Bravo!");
             }
       
-
-           
-
-
         }
 
 
@@ -383,15 +348,12 @@ namespace ConsoleApp1
             Console.WriteLine($"Isolant : {inventaire[11]}");
             Console.WriteLine($"Maison : {inventaire[12]}");
 
-
             Console.WriteLine(" ");
             Console.WriteLine("Appuyer une touche pour sortire...");
             _ = Console.ReadKey();
             partie = "en jeux";
         
         }
-
-
 
         public static void AfficherFabrication(int joueurReelX, int joueurReelY, ref int[] inventaire, ref string partie, ref bool maison)
         {
@@ -520,13 +482,10 @@ namespace ConsoleApp1
 
                     Console.Clear();
 
-            
 
                 }
 
-            
                 partie = "en jeux";
-
 
         }
 
@@ -535,10 +494,6 @@ namespace ConsoleApp1
         public static bool Collecter(ref int[] inventaire, int joueurX, int joueurY, string biom)
         {
 
-           
-
-
-        
             switch (biom)
             { 
             
@@ -578,16 +533,11 @@ namespace ConsoleApp1
         }
 
 
-
-
-
         public static void GenererBiom(ref List<string> map, ref string biom, char[] biomsSymboles, string[] biomsNoms, int joueurX, int joueurY)
         {
 
-
             if (map[joueurY][joueurX] == ' ')
             {
-
 
                 Random random = new Random();
                 int biomGenere = random.Next(0, 6);
