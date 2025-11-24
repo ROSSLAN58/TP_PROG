@@ -53,6 +53,7 @@ namespace ConsoleApp1
 
         public static void CreeMap(ref List<string> map) 
         {
+
             map.Add("X               ");
             map.Add("                ");
             map.Add("                ");
@@ -106,90 +107,78 @@ namespace ConsoleApp1
                 }
                 else if (action == "2")
                 {
-                    // inventair, map*, actionRestant*, posX*, posY*, posRX*, posRY*
+                    // inventair, map, actionRestant, posX, posY, posRX, posRY
 
 
-                    string nomFichier = "data.txt";
-                    StreamReader sr = File.OpenText(nomFichier);
 
-
-                    string mape = sr.ReadLine();
-                    if (mape == "map")
+                    Console.Clear();
+                    if (File.Exists("data.txt"))
                     {
-                        string Line;
-                        int mapCount = map.Count;
-                        int conteur = 0;
-                        while (true)
-                        {
-                            Line = sr.ReadLine();
-                            if (Line == "autreData")
-                                break;
-
-                            if (mapCount > conteur)
-                                map[conteur] = Line;
-                            else
-                            {
-                                map.Add(Line);
-                            }
-
-
-                                conteur++; 
-                        }
-
-                        posX = Convert.ToInt32(sr.ReadLine());
-                        posY = Convert.ToInt32(sr.ReadLine());
-                        posRX = Convert.ToInt32(sr.ReadLine());
-                        posRY = Convert.ToInt32(sr.ReadLine());
-                        actionRestant = Convert.ToInt32(sr.ReadLine());
-
-                        for (int i = 0; i < inventair.Length; i++)
-                        {
-                            inventair[i] = Convert.ToInt32(sr.ReadLine());
-                        }
-
+                        StreamReader sr = new StreamReader("data.txt");
+                        inventair = System.Text.Json.JsonSerializer.Deserialize<int[]>(sr.ReadLine());
+                        map = System.Text.Json.JsonSerializer.Deserialize<List<string>>(sr.ReadLine());
+                        actionRestant = System.Text.Json.JsonSerializer.Deserialize<int>(sr.ReadLine());
+                        posX = System.Text.Json.JsonSerializer.Deserialize<int>(sr.ReadLine());
+                        posY = System.Text.Json.JsonSerializer.Deserialize<int>(sr.ReadLine());
+                        posRX = System.Text.Json.JsonSerializer.Deserialize<int>(sr.ReadLine());
+                        posRY = System.Text.Json.JsonSerializer.Deserialize<int>(sr.ReadLine());
+                        sr.Close();
+                    }
+                    else
+                    {
+                        inventair = new int[13];
+                        map = new List<string>();
+                        actionRestant = 500;
+                        posX = 0;
+                        posY = 0;
+                        posRX = 0;
+                        posRY = 0;
                     }
 
-                    
 
 
 
 
 
 
-
-                    sr.Close();
                     partie = "en jeux";
 
                 }
                 else if (action == "3")
                 {
 
-                    string nomFichier = "data.txt";
-                    StreamWriter sw = File.CreateText(nomFichier);
+                    // inventair, map, actionRestant, posX, posY, posRX, posRY
 
-                    sw.WriteLine("map");
-                    for (int i = 0; i < map.Count; i++)
-                    {
-                        sw.WriteLine(map[i]);
-                        
-                    }
 
-                    sw.WriteLine("autreData");
-                    sw.WriteLine(posX);
-                    sw.WriteLine(posY);
-                    sw.WriteLine(posRX);
-                    sw.WriteLine(posRY);
+                    StreamWriter sw = new StreamWriter("data.txt");
 
-                    
-                    sw.WriteLine(actionRestant);
+                    string inventaireJSON = System.Text.Json.JsonSerializer.Serialize(inventair);
+                    sw.WriteLine(inventaireJSON);
 
-                    
-                    for (int i = 0; i < inventair.Length; i++)
-                    {
-                        sw.WriteLine(inventair[i]);
-                    }
+                    string mapJSON = System.Text.Json.JsonSerializer.Serialize(map);
+                    sw.WriteLine(mapJSON);
+
+                    string actionRestantJSON = System.Text.Json.JsonSerializer.Serialize(actionRestant);
+                    sw.WriteLine(actionRestantJSON);
+
+                    string posXJSON = System.Text.Json.JsonSerializer.Serialize(posX);
+                    sw.WriteLine(posXJSON);
+
+                    string posYJSON = System.Text.Json.JsonSerializer.Serialize(posY);
+                    sw.WriteLine(posYJSON);
+
+                    string posRXJSON = System.Text.Json.JsonSerializer.Serialize(posRX);
+                    sw.WriteLine(posRXJSON);
+
+                    string posRYJSON = System.Text.Json.JsonSerializer.Serialize(posRY);
+                    sw.WriteLine(posRYJSON);
+
+
+
+
 
                     sw.Close();
+
 
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -243,7 +232,7 @@ namespace ConsoleApp1
             int joueurY = 0;
             int joueurXReel = 0;
             int joueurYReel = 0;
-            string action = "";
+            string action;
             int actionsReastant = 500;
             string biom = "";
             //inventaire
