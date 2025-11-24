@@ -89,34 +89,16 @@ namespace ConsoleApp1
                 if (action == "1")
                 {
                     Console.Clear();
-                    Console.Write("Loading");
-                    Thread.Sleep(200);
-                    Console.Write(".");
-                    Thread.Sleep(200);
-                    Console.Write(".");
-                    Thread.Sleep(200);
-                    Console.Write(".");
-                    Thread.Sleep(200);
-
-                    Console.Clear();
-                    Console.Write("Loading");
-                    Thread.Sleep(200);
-                    Console.Write(".");
-                    Thread.Sleep(200);
-                    Console.Write(".");
-                    Thread.Sleep(200);
-                    Console.Write(".");
-                    Thread.Sleep(200);
-
-                    Console.Clear();
-                    Console.Write("Loading");
-                    Thread.Sleep(200);
-                    Console.Write(".");
-                    Thread.Sleep(200);
-                    Console.Write(".");
-                    Thread.Sleep(200);
-                    Console.Write(".");
-                    Thread.Sleep(200);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        Console.Write("Loading");
+                        for (int j = 0; j < 3; j++)
+                        {
+                            Thread.Sleep(200);
+                            Console.Write(".");
+                        }
+                        Console.Clear();
+                    }
 
 
                     partie = "en jeux";
