@@ -100,7 +100,7 @@ namespace ConsoleApp1
                 }
                 else if (action == "2")
                 {
-                    // inventair, map, actionRestant, posX, posY, posRX, posRY
+                    
 
                     Console.Clear();
                     if (File.Exists("data.txt"))
@@ -115,17 +115,7 @@ namespace ConsoleApp1
                         posRY = System.Text.Json.JsonSerializer.Deserialize<int>(sr.ReadLine());
                         sr.Close();
                     }
-                    else
-                    {
-                        inventair = new int[13];
-                        map = new List<string>();
-                        actionRestant = 500;
-                        posX = 0;
-                        posY = 0;
-                        posRX = 0;
-                        posRY = 0;
-                    }
-
+                   
 
                     partie = "en jeux";
 
@@ -133,7 +123,7 @@ namespace ConsoleApp1
                 else if (action == "3")
                 {
 
-                    // inventair, map, actionRestant, posX, posY, posRX, posRY
+                    
 
                     StreamWriter sw = new StreamWriter("data.txt");
 
