@@ -85,7 +85,7 @@ namespace ConsoleApp1
             Console.WriteLine("*Rosslan Kabisov, Dilane Giresse Pokam *");
             Console.WriteLine("****************************************");
             Console.WriteLine("");
-            Console.WriteLine("*Appuyer une touche pour sortire...");
+            Console.WriteLine("Appuyer une touche pour sortire...");
             _ = Console.ReadKey();
             partie = "menu";
         }
@@ -349,6 +349,8 @@ namespace ConsoleApp1
         public static void AfficherInventaire(int[] inventaire, ref string partie)
         { 
         Console.Clear();
+            Console.WriteLine("Inventaire");
+            Console.WriteLine();
             Console.WriteLine($"Fer :     {inventaire[Fer]}");
             Console.WriteLine($"Silex :   {inventaire[1]}");
             Console.WriteLine($"Bois :    {inventaire[2]}");
@@ -379,7 +381,8 @@ namespace ConsoleApp1
                 {
                 while (true)
                 {
-
+                    Console.WriteLine("Fabrication");
+                    Console.WriteLine();
                     Console.WriteLine($"Fer :     {inventaire[Fer]}");
                     Console.WriteLine($"Silex :   {inventaire[1]}");
                     Console.WriteLine($"Bois :    {inventaire[2]}");
