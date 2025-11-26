@@ -381,7 +381,8 @@ namespace ConsoleApp1
                 {
                 while (true)
                 {
-                    Console.WriteLine("Fabrication");
+                    
+                    Console.WriteLine("Inventaire");
                     Console.WriteLine();
                     Console.WriteLine($"Fer :     {inventaire[Fer]}");
                     Console.WriteLine($"Silex :   {inventaire[1]}");
@@ -398,7 +399,8 @@ namespace ConsoleApp1
                     Console.WriteLine($"Maison :  {inventaire[12]}");
 
                     Console.WriteLine(" ");
-
+                    Console.WriteLine("Fabrication");
+                    Console.WriteLine(" ");
                     Console.WriteLine("1 - Feu : 1 bois, 1 silex");
                     Console.WriteLine("2 - Hache : 1 bois, 1 fer");
                     Console.WriteLine("3 - Vitre : 1 sable, 1 feu");
