@@ -25,10 +25,18 @@ namespace ConsoleApp1
 
         public static void AfficherMap( List<string> map, int joueurX, int joueurY, int radius)
         {
+            for (int i = 0; i < (radius+10)*2; i++)
+            {
+                Console.Write("*");
+            }
+
+            Console.WriteLine("**");
             for (int i = joueurY - radius; i < joueurY + radius; i++)
             {
+                Console.Write("*");
                 for (int j = joueurX - (radius+10); j < joueurX + (radius + 10); j++)
                 {
+                    
                     if (i < 0 || j < 0)
                     {
                         Console.Write(" ");
@@ -41,13 +49,23 @@ namespace ConsoleApp1
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                 }
-                Console.WriteLine();
+                Console.WriteLine("*");
             }
+
+            for (int i = 0; i < (radius + 10) * 2; i++)
+            {
+                Console.Write("*");
+            }
+
+            Console.WriteLine("**");
+
+
         }
 
 
-        public static void CreeMap(ref List<string> map) 
+        public static void CreeMap(ref List<string> map)
         {
+            
 
             map.Add("X               ");
             map.Add("                ");
@@ -59,12 +77,15 @@ namespace ConsoleApp1
 
         public static void AfficherCredits(ref string partie)
         {
-            
-            Console.WriteLine("MonCraft");
-            Console.WriteLine("Tout drois reserve.");
-            Console.WriteLine("Rosslan Kabisov, Dilane Giresse Pokam");
+            Console.WriteLine("****************************************");
+            Console.WriteLine("*               MonCraft               *");
+            Console.WriteLine("****************************************");
+            Console.WriteLine("*Tout drois reserve.                   *");
+            Console.WriteLine("****************************************");
+            Console.WriteLine("*Rosslan Kabisov, Dilane Giresse Pokam *");
+            Console.WriteLine("****************************************");
             Console.WriteLine("");
-            Console.WriteLine("Appuyer une touche pour sortire...");
+            Console.WriteLine("*Appuyer une touche pour sortire...");
             _ = Console.ReadKey();
             partie = "menu";
         }
@@ -75,10 +96,15 @@ namespace ConsoleApp1
 
             while (true) {
 
-                Console.WriteLine("1 - Jouer");
-                Console.WriteLine("2 - Charger Partie");
-                Console.WriteLine("3 - Sauvegarde la partie");
-                Console.WriteLine("4 - Crédits");
+                Console.WriteLine("****************************");
+                Console.WriteLine("* 1 - Jouer                *");
+                Console.WriteLine("****************************");
+                Console.WriteLine("* 2 - Charger une partie   *");
+                Console.WriteLine("****************************");
+                Console.WriteLine("* 3 - Sauvegarde la partie *");
+                Console.WriteLine("****************************");
+                Console.WriteLine("* 4 - Crédits              *");
+                Console.WriteLine("****************************");
 
                 string action = Console.ReadKey().KeyChar.ToString();
                 if (action == "1")
@@ -211,7 +237,7 @@ namespace ConsoleApp1
                     {
 
                         AfficherMap(map, joueurX, joueurY, Radius);
-                        Console.WriteLine("------------------------------------");
+                        Console.WriteLine();
                         Console.WriteLine($"X : {joueurXReel}, Y : {joueurYReel}");
                         Console.WriteLine($"Actions restant : {actionsReastant}");
                         Console.WriteLine($"Biom : {biom}");
@@ -323,20 +349,19 @@ namespace ConsoleApp1
         public static void AfficherInventaire(int[] inventaire, ref string partie)
         { 
         Console.Clear();
-
-            Console.WriteLine($"Fer : {inventaire[Fer]}");
-            Console.WriteLine($"Silex : {inventaire[1]}");
-            Console.WriteLine($"Bois : {inventaire[2]}");
-            Console.WriteLine($"Argile : {inventaire[3]}");
-            Console.WriteLine($"Herbe : {inventaire[4]}");
-            Console.WriteLine($"Sable : {inventaire[5]}");
-            Console.WriteLine($"Feu : {inventaire[6]}");
-            Console.WriteLine($"Hache : {inventaire[7]}");
-            Console.WriteLine($"Vitre : {inventaire[8]}");
+            Console.WriteLine($"Fer :     {inventaire[Fer]}");
+            Console.WriteLine($"Silex :   {inventaire[1]}");
+            Console.WriteLine($"Bois :    {inventaire[2]}");
+            Console.WriteLine($"Argile :  {inventaire[3]}");
+            Console.WriteLine($"Herbe :   {inventaire[4]}");
+            Console.WriteLine($"Sable :   {inventaire[5]}");
+            Console.WriteLine($"Feu :     {inventaire[6]}");
+            Console.WriteLine($"Hache :   {inventaire[7]}");
+            Console.WriteLine($"Vitre :   {inventaire[8]}");
             Console.WriteLine($"Planche : {inventaire[9]}");
-            Console.WriteLine($"Brique : {inventaire[10]}");
+            Console.WriteLine($"Brique :  {inventaire[10]}");
             Console.WriteLine($"Isolant : {inventaire[11]}");
-            Console.WriteLine($"Maison : {inventaire[12]}");
+            Console.WriteLine($"Maison :  {inventaire[12]}");
 
             Console.WriteLine(" ");
             Console.WriteLine("Appuyer une touche pour sortire...");
@@ -355,19 +380,19 @@ namespace ConsoleApp1
                 while (true)
                 {
 
-                    Console.WriteLine($"Fer : {inventaire[Fer]}");
-                    Console.WriteLine($"Silex : {inventaire[Silex]}");
-                    Console.WriteLine($"Bois : {inventaire[Bois]}");
-                    Console.WriteLine($"Argile : {inventaire[Argile]}");
-                    Console.WriteLine($"Herbe : {inventaire[Herbe]}");
-                    Console.WriteLine($"Sable : {inventaire[Sable]}");
-                    Console.WriteLine($"Feu : {inventaire[Feu]}");
-                    Console.WriteLine($"Hache : {inventaire[Hache]}");
-                    Console.WriteLine($"Vitre : {inventaire[Vitre]}");
-                    Console.WriteLine($"Planche : {inventaire[Planche]}");
-                    Console.WriteLine($"Brique : {inventaire[Brique]}");
-                    Console.WriteLine($"Isolant : {inventaire[Isolant]}");
-                    Console.WriteLine($"Maison : {inventaire[Maison]}");
+                    Console.WriteLine($"Fer :     {inventaire[Fer]}");
+                    Console.WriteLine($"Silex :   {inventaire[1]}");
+                    Console.WriteLine($"Bois :    {inventaire[2]}");
+                    Console.WriteLine($"Argile :  {inventaire[3]}");
+                    Console.WriteLine($"Herbe :   {inventaire[4]}");
+                    Console.WriteLine($"Sable :   {inventaire[5]}");
+                    Console.WriteLine($"Feu :     {inventaire[6]}");
+                    Console.WriteLine($"Hache :   {inventaire[7]}");
+                    Console.WriteLine($"Vitre :   {inventaire[8]}");
+                    Console.WriteLine($"Planche : {inventaire[9]}");
+                    Console.WriteLine($"Brique :  {inventaire[10]}");
+                    Console.WriteLine($"Isolant : {inventaire[11]}");
+                    Console.WriteLine($"Maison :  {inventaire[12]}");
 
                     Console.WriteLine(" ");
 
